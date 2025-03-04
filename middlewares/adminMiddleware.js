@@ -1,5 +1,5 @@
 const authenticateToken = require("./authenticateToken");
-const userModel = require("../models/userModel");
+const userModel = require("../model/user");
 
 const adminMiddleware = async (req, res, next) => {
   authenticateToken(req, res, async () => {

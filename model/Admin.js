@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const customerSchema = new mongoose.Schema({
+const adminSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
@@ -18,13 +18,9 @@ const customerSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    fullName: {
+    role: {
         type: String,
-        required: true
-    },
-    phone: {
-        type: String,
-        required: true
+        default: 'admin'
     },
     createdAt: {
         type: Date,
@@ -32,4 +28,4 @@ const customerSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Customer', customerSchema);
+module.exports = mongoose.model('Admin', adminSchema); 

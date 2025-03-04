@@ -16,7 +16,13 @@ const OrderSchema = new mongoose.Schema({
     productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
     quantity: { type: Number, required: true }
   }],
-  status: { type: String, default: 'pending', enum: ['pending', 'shipped', 'delivered'] }
+  address: [{
+    street: String,
+    city: String,
+    state: String,
+    country: String
+  }],
+  status: { type: String, enum: ['pending', 'processing', 'shipped', 'delivered', 'cancelled'], default: 'pending' }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Order', OrderSchema);
